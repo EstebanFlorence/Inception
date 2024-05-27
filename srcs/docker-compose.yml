@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+
+  mariadb:
+    build:
+      context: contextPath
+      dockerfile: Dockerfile
+
+  nginx:
+    build:
+      context: contextPath
+      dockerfile: Dockerfile
+
+  wordpress:
+    build:
+      context: contextPath
+      dockerfile: Dockerfile
+

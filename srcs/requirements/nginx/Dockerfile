@@ -1,5 +1,7 @@
 FROM baseImage
 
-RUN apt update && apt upgrade && apt install -y nginx
+RUN ex: apt update && apt upgrade && apt install -y nginx
+
+COPY source dest
 
 CMD [ "nginx", "-g", "daemon off;" ]

@@ -3,29 +3,72 @@ version: '3.8'
 services:
 
   nginx:
-    build: ./requirements/nginx/
+    build: ./requirements/nginx/ # or:
       # context: ./requirements/nginx/
       # dockerfile: Dockerfile
-    # container_name: nginx
+    # container_name: nginx # not necessary (?)
     env_file:
       - .env
     volumes:
       -
+    networks:
+      inception-network:
+        aliases:
+          - nginx
+    # depends_on:
+    #   - 
+    # restart: unless-stopped
     ports:
-      - "8080"
+      - "443"
 
-  # mariadb:
-  #   build:
-  #     context: ./requirements/mariadb/
-  #     dockerfile: Dockerfile
+  mariadb:
+    build: ./requirements/mariadb/
+    env_file:
+      - .env
+    volumes:
+      -
+    networks:
+      inception-network:
+        aliases:
+          - db
+    # restart: unless-stopped
+    # depends_on:
+    #   - 
 
-  # wordpress:
-  #   build:
-  #     context: ./requirements/wordpress/
-  #     dockerfile: Dockerfile
+  wordpress:
+    build: ./requirements/wordpress/
+    env_file:
+      - .env
+    volumes:
+      -
+    networks:
+      inception-network:
+        aliases:
+          - wp
+    # restart: unless-stopped
+    # depends_on:
+    #   - 
+
+
+networks:
+  inception-network:
 
 
 volumes:
-  db_volume:
+  db-data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device:
+    # name:
+    # external:
 
-  wp_volume:
+  wp-data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device:
+    # name:
+    # external:

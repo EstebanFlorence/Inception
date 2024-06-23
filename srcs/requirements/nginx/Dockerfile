@@ -7,4 +7,4 @@ COPY ./conf/nginx.conf /etc/nginx/nginx.conf
 
 CMD [ "nginx", "-g", "daemon off;" ]
 
-EXPOSE 443
+EXPOSE 443 8080

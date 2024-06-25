@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 openssl version > /dev/null 2>&1
 
@@ -15,21 +15,22 @@ if [ $? -ne 0 ]; then
 fi
 
 
-if ! grep -q "127.0.0.1 $USER.42.fr" /etc/hosts; then
+if ! grep -q "127.0.0.1       $USER.42.fr" /etc/hosts; then
     echo "Setting domain name as $USER.42.fr..."
-    echo "127.0.0.1 $USER.42.fr" | sudo tee -a /etc/hosts > /dev/null
+    echo "127.0.0.1       $USER.42.fr" | sudo tee -a /etc/hosts > /dev/null
 fi
 
 
-VOLUMES="/home/$USER/data"
-CERTS="/home/$USER/certs"
+export VOLUMES="/home/$USER/data"
+export CERTS="/home/$USER/certs"
 
 mkdir -p $VOLUMES/db $VOLUMES/wp $CERTS
+echo "Created directories for volumes and certificates."
 
-openssl req -x509 -newkey sha:4096 -days 365 -nodes \
+openssl req -x509 -newkey rsa:4096 -days 365 -nodes \
         -out $CERTS/$USER.crt \
         -keyout $CERTS/$USER.key \
-        -subj "/CO=IT/L=FI/O=42/OU=student/CN=$USER.42.fr"
+        -subj "/C=IT/L=FI/O=42/OU=student/CN=$USER.42.fr"
 
 if [ $? -eq 0 ]; then
     echo "OpenSSL certificates generated in $CERTS"

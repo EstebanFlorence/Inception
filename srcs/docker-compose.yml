@@ -10,7 +10,8 @@ services:
     env_file:
       - .env
     volumes:
-      - wp-data:/var/
+      - ${CERTS_SSL}:/etc/nginx/certs
+      # - wp-data:/var/www/html
     networks:
       inception-network:
         aliases:

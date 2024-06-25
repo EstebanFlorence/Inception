@@ -3,23 +3,24 @@ version: '3.8'
 services:
 
   nginx:
+    container_name: nginx
     build: ./requirements/nginx/ # or:
       # context: ./requirements/nginx/
       # dockerfile: Dockerfile
-    # container_name: nginx # not necessary (?)
     env_file:
       - .env
     volumes:
-      -
+      - wp-data:/var/
     networks:
       inception-network:
         aliases:
-          - nginx
+          - nginx-network
     # depends_on:
     #   - 
-    # restart: unless-stopped
+    restart: always
     ports:
-      - "443"
+      - "443:443"
+      - "8080:8080"
 
   # mariadb:
   #   build: ./requirements/mariadb/
@@ -56,19 +57,19 @@ networks:
 
 volumes:
   db-data:
+    name: "db-data"
     driver: local
     driver_opts:
       o: bind
       type: none
-      device:
-    # name:
+      device: ${VOLUMES}/db
     # external:
 
   wp-data:
+    name: "wp-data"
     driver: local
     driver_opts:
       o: bind
       type: none
-      device:
-    # name:
+      device: ${VOLUMES}/wp
     # external:

@@ -30,7 +30,7 @@ echo "Created directories for volumes and certificates."
 openssl req -x509 -newkey rsa:4096 -days 365 -nodes \
         -out $CERTS/$USER.crt \
         -keyout $CERTS/$USER.key \
-        -subj "/C=IT/L=FI/O=42/OU=student/CN=$USER.42.fr"
+        -subj "/C=IT/L=Firenze/O=42/OU=student/CN=$USER.42.fr"
 
 if [ $? -eq 0 ]; then
     echo "OpenSSL certificates generated in $CERTS"

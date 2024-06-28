@@ -5,8 +5,8 @@ openssl version > /dev/null 2>&1
 if [ $? -ne 0 ]; then
     echo "OpenSSL is not installed. Installing OpenSSL..."
 
-    if [ -x "$(command -v apk)" ]; then
-        sudo apk update && sudo apk install -y openssl
+    if [ -x "$(command -v apt)" ]; then
+        sudo apt update && sudo apt install -y openssl
         echo "OpenSSL has been installed successfully."
     else
         echo "Unsupported package manager. Please install OpenSSL manually."

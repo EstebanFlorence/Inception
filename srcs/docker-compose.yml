@@ -4,52 +4,51 @@ services:
 
   nginx:
     container_name: nginx
-    build: ./requirements/nginx/ # or:
-      # context: ./requirements/nginx/
-      # dockerfile: Dockerfile
+    build: ./requirements/nginx/
     env_file:
       - .env
     volumes:
       - ${CERTS_SSL}:/etc/nginx/certs
-      # - wp-data:/var/www/html
+      - wp-data:/var/www/html
     networks:
       inception-network:
         aliases:
           - nginx-network
     # depends_on:
     #   - 
-    restart: always
+    restart: unless-stopped
     ports:
       - "443:443"
       - "8080:8080"
 
-  # mariadb:
-  #   build: ./requirements/mariadb/
-  #   env_file:
-  #     - .env
-  #   volumes:
-  #     -
-  #   networks:
-  #     inception-network:
-  #       aliases:
-  #         - db
-  #   # restart: unless-stopped
-  #   # depends_on:
-  #   #   - 
-
   # wordpress:
+  #   container_name: wordpress
   #   build: ./requirements/wordpress/
   #   env_file:
   #     - .env
-  #   volumes:
-  #     -
+  #   # volumes:
+  #   #   -
   #   networks:
   #     inception-network:
   #       aliases:
-  #         - wp
-  #   # restart: unless-stopped
+  #         - wp-network
   #   # depends_on:
   #   #   - 
+  #   restart: unless-stopped
+
+  mariadb:
+    build: ./requirements/mariadb/
+    env_file:
+      - .env
+    # volumes:
+    #   -
+    networks:
+      inception-network:
+        aliases:
+          - db-network
+    restart: unless-stopped
+    # depends_on:
+    #   - 
 
 
 networks:
@@ -57,15 +56,6 @@ networks:
 
 
 volumes:
-  db-data:
-    name: "db-data"
-    driver: local
-    driver_opts:
-      o: bind
-      type: none
-      device: ${VOLUMES}/db
-    # external:
-
   wp-data:
     name: "wp-data"
     driver: local
@@ -73,4 +63,13 @@ volumes:
       o: bind
       type: none
       device: ${VOLUMES}/wp
+    # external:
+
+  db-data:
+    name: "db-data"
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ${VOLUMES}/db
     # external:

@@ -17,13 +17,12 @@ https://docs.docker.com/guides/docker-concepts/building-images/writing-a-dockerf
 https://docs.docker.com/compose/reference/
 https://docs.docker.com/compose/compose-file/05-services/
 
-## SSL Certificates
-https://www.cloudflare.com/learning/ssl/what-is-an-ssl-certificate/
-
 ## Alpine
-https://wiki.alpinelinux.org/wiki/Installation
-https://wiki.alpinelinux.org/wiki/Installing_Alpine_in_a_virtual_machine
 https://alpinelinux.org/releases/
 
 ## NGINX
 http://nginx.org/en/docs/http/configuring_https_servers.html
+https://www.youtube.com/watch?v=X3Pr5VATOyA
+https://www.quora.com/Why-do-almost-all-Nginx-users-change-the-root-to-var-www-HTML-from-the-default-usr-share-nginx-HTML-Any-performance-or-security-reasons
+## MariaDB
+https://wiki.alpinelinux.org/wiki/MariaDB

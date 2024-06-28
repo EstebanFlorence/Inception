@@ -12,28 +12,28 @@ GREEN		=	\033[1;32m
 RED		    =	\033[1;31m
 
 build:
-		@echo -e "${ITALIC}${BOLD}${BLUE}Building${CLR_RMV}"
+		@echo "${ITALIC}${BOLD}${BLUE}Building${CLR_RMV}"
 		@docker compose -f ${DOCKER_COMPOSE} build --build-arg USER=${USER} --no-cache
 
 up:
-		@echo -e "${ITALIC}${BOLD}${GREEN}Starting Inception${CLR_RMV}"
+		@echo "${ITALIC}${BOLD}${GREEN}Starting Inception${CLR_RMV}"
 		@docker compose -f ${DOCKER_COMPOSE} up -d
 
 down:
-		@echo -e "${ITALIC}${BOLD}${RED}Shutdown${CLR_RMV}"
+		@echo "${ITALIC}${BOLD}${RED}Shutdown${CLR_RMV}"
 		@docker compose -f ${DOCKER_COMPOSE} down
 
 clean:	down
-		@echo -e "${ITALIC}${BOLD}${RED}Removing Inception Images${CLR_RMV}"
+		@echo "${ITALIC}${BOLD}${RED}Removing Inception Images${CLR_RMV}"
 		@docker compose -f ${DOCKER_COMPOSE} down --rmi all
 
 fclean:	clean
 		@docker container prune
 		@docker builder prune
-		@docker system prune
+		@docker system prune -a
 
 cleanvol:
-		@echo -e "${ITALIC}${BOLD}${RED}Removing Volumes${CLR_RMV}"
+		@echo "${ITALIC}${BOLD}${RED}Removing Volumes${CLR_RMV}"
 		@if docker volume ls | grep -q 'db-data'; then \
 			docker volume rm db-data; \
 		fi

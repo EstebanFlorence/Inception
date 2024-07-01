@@ -54,7 +54,7 @@ services:
 
 networks:
   inception-network:
-    name: inception-network
+    name: inception
     driver: bridge
     ipam:
       driver: default

@@ -24,13 +24,8 @@ down:
 		@docker compose -f ${DOCKER_COMPOSE} down
 
 clean:	down
-		@echo "${ITALIC}${BOLD}${RED}Removing Inception Images${CLR_RMV}"
-		@docker compose -f ${DOCKER_COMPOSE} down --rmi all
-
-fclean:	clean
-		@docker container prune
+		@docker system prune -a --volumes
 		@docker builder prune
-		@docker system prune -a
 
 cleanvol:
 		@echo "${ITALIC}${BOLD}${RED}Removing Volumes${CLR_RMV}"
@@ -43,7 +38,17 @@ cleanvol:
 		@rm -rf /home/${USER}/data
 		@mkdir -p /home/${USER}/data/db /home/${USER}/data/wp
 
-re:		fclean build
+ls:
+		@echo "${ITALIC}${BOLD}${YELLOW}Volumes:${CLR_RMV}"
+		@docker volume ls
+		@echo "${ITALIC}${BOLD}${YELLOW}Networks:${CLR_RMV}"
+		@docker network ls
+		@echo "${ITALIC}${BOLD}${YELLOW}Images:${CLR_RMV}"
+		@docker images -a
+		@echo "${ITALIC}${BOLD}${YELLOW}Containers:${CLR_RMV}"
+		@docker compose -f ${DOCKER_COMPOSE} ps -a
+
+re:		clean build
 
 
 # Debug
@@ -55,7 +60,7 @@ IMAGE_NAME = srcs-mariadb:latest
 
 explore:
 		@echo "${ITALIC} ${BOLD} ${PURPLE} ${IMAGE_NAME} ${CLR_RMV}"
-		@docker run -it --rm ${IMAGE_NAME} #sh
+		@docker run -it --rm ${IMAGE_NAME} sh
 
 
 .PHONY: build up down clean fclean clean-volumes logs re

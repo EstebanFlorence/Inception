@@ -21,20 +21,28 @@ if ! grep -q "127.0.0.1       $USER.42.fr" /etc/hosts; then
 fi
 
 
-export VOLUMES="/home/$USER/data"
-export CERTS="/home/$USER/certs"
+# export VOLUMES="/home/$USER/data"
+# export CERTS="/home/$USER/certs"
 
-mkdir -p $VOLUMES/db $VOLUMES/wp $CERTS
-sudo chmod 777 $VOLUMES
-echo "Created directories for volumes and certificates."
+echo 'export VOLUMES="/home/$USER/data"' >> ~/.zshrc
+echo 'export CERTS="/home/$USER/certs"' >> ~/.zshrc
 
-openssl req -x509 -newkey rsa:4096 -days 365 -nodes \
-        -out $CERTS/$USER.crt \
-        -keyout $CERTS/$USER.key \
-        -subj "/C=IT/L=Firenze/O=42/OU=student/CN=$USER.42.fr"
+if [ ! -d $VOLUMES ]; then
+    mkdir -p $VOLUMES/db $VOLUMES/wp
+    sudo chmod 777 $VOLUMES
+    echo "Created directories for volumes and certificates."
+fi
+
+if [ ! -d $CERTS ]; then
+    mkdir -p $CERTS
+    openssl req -x509 -newkey rsa:4096 -days 365 -nodes \
+            -out $CERTS/$USER.crt \
+            -keyout $CERTS/$USER.key \
+            -subj "/C=IT/L=Firenze/O=42/OU=student/CN=$USER.42.fr"
+fi
 
 if [ $? -eq 0 ]; then
-    echo "OpenSSL certificates generated in $CERTS"
+    echo "OpenSSL certificates available in $CERTS folder."
     echo "Volumes available in $VOLUMES folder."
 else
     echo "OpenSSL command failed."

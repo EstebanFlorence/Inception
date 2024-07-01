@@ -27,4 +27,6 @@ https://www.quora.com/Why-do-almost-all-Nginx-users-change-the-root-to-var-www-H
 
 ## MariaDB
 https://wiki.alpinelinux.org/wiki/MariaDB
+https://mariadb.com/kb/en/mariadb-install-db/
 https://mariadb.com/kb/en/configuring-mariadb-with-option-files/
+https://mariadb.com/kb/en/server-system-variables/

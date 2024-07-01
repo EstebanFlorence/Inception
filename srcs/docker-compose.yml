@@ -7,7 +7,7 @@ services:
       - .env
     volumes:
       - ${CERTS_SSL}:/etc/nginx/certs
-      - wp-data:/var/www/html
+      # - wp-data:/var/www/html
     networks:
       inception-network:
         ipv4_address: 10.0.0.1
@@ -19,6 +19,22 @@ services:
     ports:
       - "443:443"
       - "8080:8080"
+
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb/
+    env_file:
+      - .env
+    # volumes:
+    #   -
+    networks:
+      inception-network:
+        ipv4_address : 10.0.0.2
+        # aliases:
+          # - db-network
+    # depends_on:
+    #   - 
+    restart: unless-stopped
 
   # wordpress:
   #   container_name: wordpress
@@ -34,22 +50,6 @@ services:
   #   # depends_on:
   #   #   - 
   #   restart: unless-stopped
-
-  mariadb:
-    container_name: mariadb
-    build: ./requirements/mariadb/
-    env_file:
-      - .env
-    # volumes:
-    #   -
-    networks:
-      inception-network:
-        ipv4_address : 10.0.0.2
-        # aliases:
-          # - db-network
-    restart: unless-stopped
-    # depends_on:
-    #   - 
 
 
 networks:

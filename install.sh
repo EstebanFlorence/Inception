@@ -25,6 +25,7 @@ export VOLUMES="/home/$USER/data"
 export CERTS="/home/$USER/certs"
 
 mkdir -p $VOLUMES/db $VOLUMES/wp $CERTS
+sudo chmod 777 $VOLUMES
 echo "Created directories for volumes and certificates."
 
 openssl req -x509 -newkey rsa:4096 -days 365 -nodes \

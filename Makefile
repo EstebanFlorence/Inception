@@ -24,16 +24,17 @@ down:
 		@docker compose -f ${DOCKER_COMPOSE} down
 
 clean:	down
+		@echo "${ITALIC}${BOLD}${PURPLE}Cleaning${CLR_RMV}"
 		@docker system prune -a --volumes
 		@docker builder prune
 
 cleanvol:
 		@echo "${ITALIC}${BOLD}${RED}Removing Volumes${CLR_RMV}"
 		@if docker volume ls | grep -q 'db-data'; then \
-			docker volume rm db-data; \
+			docker volume rm -f db-data; \
 		fi
 		@if docker volume ls | grep -q 'wp-data'; then \
-			docker volume rm wp-data; \
+			docker volume rm -f wp-data; \
 		fi
 		@rm -rf /home/${USER}/data
 		@mkdir -p /home/${USER}/data/db /home/${USER}/data/wp
@@ -59,8 +60,9 @@ logs:
 IMAGE_NAME = srcs-mariadb:latest
 
 explore:
+		@clear
 		@echo "${ITALIC} ${BOLD} ${PURPLE} ${IMAGE_NAME} ${CLR_RMV}"
-		@docker run -it --rm ${IMAGE_NAME} sh
+		@docker run -it --rm ${IMAGE_NAME} /bin/sh
 
 
-.PHONY: build up down clean fclean clean-volumes logs re
+.PHONY: build up down clean cleanvol ls logs explore re

@@ -3,7 +3,7 @@
 # VOLUMES="/home/$USER/data"
 # CERTS="/home/$USER/certs"
 
-rm -rf $VOLUMES $CERTS
+sudo rm -rf $VOLUMES $CERTS
 unset VOLUMES CERTS
 
 # Remove the entry from /etc/hosts

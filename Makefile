@@ -26,15 +26,14 @@ down:
 clean:	down
 		@echo "${ITALIC}${BOLD}${PURPLE}Cleaning${CLR_RMV}"
 		@docker system prune -a --volumes
-		@docker builder prune
 
 cleanvol:
 		@echo "${ITALIC}${BOLD}${RED}Removing Volumes${CLR_RMV}"
-		@if docker volume ls | grep -q 'db-data'; then \
-			docker volume rm -f db-data; \
+		@if docker volume ls | grep -q 'db'; then \
+			docker volume rm -f db; \
 		fi
-		@if docker volume ls | grep -q 'wp-data'; then \
-			docker volume rm -f wp-data; \
+		@if docker volume ls | grep -q 'wp'; then \
+			docker volume rm -f wp; \
 		fi
 		@rm -rf /home/${USER}/data
 		@mkdir -p /home/${USER}/data/db /home/${USER}/data/wp

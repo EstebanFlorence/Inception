@@ -7,7 +7,7 @@ services:
       - .env
     volumes:
       - ${CERTS_SSL}:/etc/nginx/certs
-      # - wp-data:/var/www/html
+      # - wp:/var/www/html
     networks:
       inception-network:
         ipv4_address: 10.0.0.1
@@ -25,8 +25,8 @@ services:
     build: ./requirements/mariadb/
     env_file:
       - .env
-    # volumes:
-    #   -
+    volumes:
+      - db-data:/var/lib/mysql
     networks:
       inception-network:
         ipv4_address : 10.0.0.2
@@ -65,7 +65,7 @@ networks:
 
 volumes:
   wp-data:
-    name: "wp-data"
+    name: "wp"
     driver: local
     driver_opts:
       o: bind
@@ -74,7 +74,7 @@ volumes:
     # external:
 
   db-data:
-    name: "db-data"
+    name: "db"
     driver: local
     driver_opts:
       o: bind

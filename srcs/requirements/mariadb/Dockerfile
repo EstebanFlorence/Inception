@@ -28,5 +28,3 @@ RUN chown -R mysql:mysql    /var/run/mysqld \
                             /var/lib/mysql
 
 CMD [ "mariadbd-safe", "--defaults-file=/etc/my.cnf.d/inception.cnf" ]
-
-# CMD [ "/bin/sh" ]

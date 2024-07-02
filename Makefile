@@ -35,8 +35,9 @@ cleanvol:
 		@if docker volume ls | grep -q 'wp'; then \
 			docker volume rm -f wp; \
 		fi
-		@rm -rf /home/${USER}/data
-		@mkdir -p /home/${USER}/data/db /home/${USER}/data/wp
+		# @source tools/clean.sh 
+		# @rm -rf /home/${USER}/data
+		# @mkdir -p /home/${USER}/data/db /home/${USER}/data/wp
 
 ls:
 		@echo "${ITALIC}${BOLD}${YELLOW}Volumes:${CLR_RMV}"

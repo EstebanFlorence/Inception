@@ -30,3 +30,6 @@ https://wiki.alpinelinux.org/wiki/MariaDB
 https://mariadb.com/kb/en/mariadb-install-db/
 https://mariadb.com/kb/en/configuring-mariadb-with-option-files/
 https://mariadb.com/kb/en/server-system-variables/
+
+## WordPress
+https://developer.wordpress.org/apis/wp-config-php/

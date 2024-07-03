@@ -4,11 +4,13 @@ ARG USER
 
 ENV USER=${USER}
 
-# rm -f /var/cache/apk/*
+EXPOSE 3306
+
 RUN apk update && apk upgrade && \
     apk --no-cache add \
     mariadb \
-    mariadb-client
+    mariadb-client \
+    && rm -rf /var/cache/apk/*
 
 COPY ./conf/my.cnf /etc/my.cnf.d/inception.cnf
 

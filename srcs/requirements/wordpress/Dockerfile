@@ -5,16 +5,21 @@ EXPOSE 9000
 RUN apk update && apk upgrade && \
     apk --no-cache add \
     gettext \
-    wget \
     curl \
     php83 \
     php83-fpm \
     php83-mysqli \
+    php83-phar \
+    php83-mbstring \
     && rm -rf /var/cache/apk/*
 
-RUN mkdir -p /var/www
+RUN ln -s /usr/bin/php83 /usr/bin/php
 
-COPY /conf/wp-config-tmp.php /
+RUN mkdir -p /var/www/html
+
+# WORKDIR /var/www
+
+COPY /conf/wp-config.php /wp-config-tmp.php
 
 COPY /tools/entrypoint.sh /entrypoint.sh
 

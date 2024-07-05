@@ -14,7 +14,7 @@ services:
         # aliases:
         #   - nginx-network
     # depends_on:
-    #   - 
+    #   - wordpress
     restart: unless-stopped
     ports:
       - "443:443"
@@ -36,20 +36,21 @@ services:
     #   - 
     restart: unless-stopped
 
-  # wordpress:
-  #   container_name: wordpress
-  #   build: ./requirements/wordpress/
-  #   env_file:
-  #     - .env
-  #   # volumes:
-  #   #   -
-  #   networks:
-  #     inception-network:
-  #       aliases:
-  #         - wp-network
-  #   # depends_on:
-  #   #   - 
-  #   restart: unless-stopped
+  wordpress:
+    container_name: wordpress
+    build: ./requirements/wordpress/
+    env_file:
+      - .env
+    # volumes:
+    #   -
+    networks:
+      inception-network:
+        ipv4_address : 10.0.0.3
+        # aliases:
+        #   - wp-network
+    # depends_on:
+    #   - mariadb
+    restart: unless-stopped
 
 
 networks:

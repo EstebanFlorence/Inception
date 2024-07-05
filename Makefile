@@ -57,7 +57,7 @@ logs:
 		@echo "${ITALIC}${BOLD}${YELLOW}Logs${CLR_RMV}"
 		@docker compose -f ${DOCKER_COMPOSE} logs
 
-IMAGE_NAME = srcs-mariadb:latest
+IMAGE_NAME = srcs-wordpress:latest
 
 explore:
 		@clear

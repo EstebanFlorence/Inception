@@ -31,4 +31,4 @@ RUN rm /entrypoint.sh
 
 # CMD [ "/entrypoint.sh" ]
 
-CMD [ "/bin/sh" ]
+CMD [ "php-fpm83", "--nodaemonize" ]

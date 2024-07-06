@@ -7,14 +7,14 @@ services:
       - .env
     volumes:
       - ${CERTS_SSL}:/etc/nginx/certs
-      # - wp:/var/www/html
+      - wp-data:/var/www/html
     networks:
       inception-network:
         ipv4_address: 10.0.0.1
         # aliases:
         #   - nginx-network
-    # depends_on:
-    #   - wordpress
+    depends_on:
+      - wordpress
     restart: unless-stopped
     ports:
       - "443:443"
@@ -41,15 +41,15 @@ services:
     build: ./requirements/wordpress/
     env_file:
       - .env
-    # volumes:
-    #   -
+    volumes:
+      - wp-data:/var/www/html
     networks:
       inception-network:
         ipv4_address : 10.0.0.3
         # aliases:
         #   - wp-network
-    # depends_on:
-    #   - mariadb
+    depends_on:
+      - mariadb
     restart: unless-stopped
 
 

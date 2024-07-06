@@ -19,10 +19,10 @@ RUN apk update && apk upgrade && \
 
 RUN chmod +x /entrypoint.sh
 
-# RUN sh /entrypoint.sh
+RUN sh /entrypoint.sh
 
-# RUN rm /entrypoint.sh
+RUN rm /entrypoint.sh
 
-CMD [ "/entrypoint.sh" ]
+# CMD [ "/entrypoint.sh" ]
 
-# CMD [ "nginx" "-g" "daemon off;" ]
+CMD [ "nginx", "-g", "daemon off;" ]

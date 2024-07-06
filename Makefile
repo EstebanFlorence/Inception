@@ -57,12 +57,12 @@ logs:
 		@echo "${ITALIC}${BOLD}${YELLOW}Logs${CLR_RMV}"
 		@docker compose -f ${DOCKER_COMPOSE} logs
 
-IMAGE_NAME = srcs-wordpress:latest
+IMAGE_NAME = wordpress
 
 explore:
 		@clear
 		@echo "${ITALIC} ${BOLD} ${PURPLE} ${IMAGE_NAME} ${CLR_RMV}"
-		@docker run -it --rm ${IMAGE_NAME} /bin/sh
+		@docker exec -it ${IMAGE_NAME} /bin/sh
 
 
 .PHONY: build up down clean cleanvol ls logs explore re

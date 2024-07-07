@@ -13,7 +13,7 @@ RED		    =	\033[1;31m
 
 build:
 		@echo "${ITALIC}${BOLD}${BLUE}Building${CLR_RMV}"
-		@docker compose -f ${DOCKER_COMPOSE} build --build-arg USER=${USER} --no-cache
+		@docker compose -f ${DOCKER_COMPOSE} build --no-cache
 
 up:
 		@echo "${ITALIC}${BOLD}${GREEN}Starting Inception${CLR_RMV}"

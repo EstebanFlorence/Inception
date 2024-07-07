@@ -1,9 +1,5 @@
 FROM alpine:3.19
 
-ARG USER
-
-ENV USER=${USER}
-
 EXPOSE 443 8080
 
 COPY /conf/nginx.conf /etc/nginx/nginx.conf.template
@@ -19,10 +15,10 @@ RUN apk update && apk upgrade && \
 
 RUN chmod +x /entrypoint.sh
 
-RUN sh /entrypoint.sh
+# RUN sh /entrypoint.sh
 
-RUN rm /entrypoint.sh
+# RUN rm /entrypoint.sh
 
-# CMD [ "/entrypoint.sh" ]
+# CMD [ "nginx", "-g", "daemon off;" ]
 
-CMD [ "nginx", "-g", "daemon off;" ]
+CMD [ "/entrypoint.sh" ]

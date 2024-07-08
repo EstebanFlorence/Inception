@@ -56,6 +56,16 @@ logs:
 		@echo "${ITALIC}${BOLD}${YELLOW}Logs${CLR_RMV}"
 		@docker compose -f ${DOCKER_COMPOSE} logs
 
+errors:
+		@echo "${ITALIC}${BOLD}${PURPLE}mariadb${CLR_RMV}"
+		@docker exec mariadb cat /var/log/mysql/error.log
+		@echo "${ITALIC}${BOLD}${PURPLE}wordpress${CLR_RMV}"
+		@docker exec wordpress cat /var/log/php83/error.log
+		@echo "${ITALIC}${BOLD}${PURPLE}nginx${CLR_RMV}"
+		@docker exec nginx cat /var/log/nginx/error.log
+		@echo "${ITALIC}${BOLD}${PURPLE}nginx access logs${CLR_RMV}"
+		@docker exec nginx cat /var/log/nginx/access.log
+
 IMAGE_NAME = wordpress
 
 explore:

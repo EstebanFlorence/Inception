@@ -27,7 +27,8 @@ define( 'DB_NAME', '$WP_DB_NAME' );
 define( 'DB_USER', '$DB_USER' );
 
 /** Database password */
-define( 'DB_PASSWORD', '$DB_PASSWORD' );
+// define( 'DB_PASSWORD', '$DB_PASSWORD' );
+define( 'DB_PASSWORD', '$WP_DB_PASSWORD' );
 
 /** Database hostname */
 define( 'DB_HOST', '$DB_HOST' );

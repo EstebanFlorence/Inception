@@ -5,14 +5,14 @@ services:
     build: ./requirements/nginx/
     env_file:
       - .env
-    volumes:
-      - ${CERTS_SSL}:/etc/nginx/certs
-      - wp-data:/var/www/html
     networks:
       inception-network:
         ipv4_address: 10.0.0.1
         # aliases:
         #   - nginx-network
+    volumes:
+      - ${CERTS_SSL}:/etc/nginx/certs
+      - wp-data:/var/www/html
     depends_on:
       - wordpress
     restart: unless-stopped
@@ -25,15 +25,13 @@ services:
     build: ./requirements/mariadb/
     env_file:
       - .env
-    volumes:
-      - db-data:/var/lib/mysql
     networks:
       inception-network:
         ipv4_address : 10.0.0.2
         # aliases:
           # - db-network
-    # depends_on:
-    #   - 
+    volumes:
+      - db-data:/var/lib/mysql
     restart: unless-stopped
 
   wordpress:
@@ -41,13 +39,13 @@ services:
     build: ./requirements/wordpress/
     env_file:
       - .env
-    volumes:
-      - wp-data:/var/www/html
     networks:
       inception-network:
         ipv4_address : 10.0.0.3
         # aliases:
         #   - wp-network
+    volumes:
+      - wp-data:/var/www/html
     depends_on:
       - mariadb
     restart: unless-stopped

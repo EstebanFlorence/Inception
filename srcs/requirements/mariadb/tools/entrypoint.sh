@@ -1,5 +1,12 @@
 #!/bin/sh
 
+if [ ! -d /var/log/mysql ]; then
+
+    mkdir -p /var/log/mysql
+    chown -R mysql:mysql /var/log/mysql
+
+fi
+
 if [ ! -d /run/mysqld ]; then
 
     mkdir -p /run/mysqld
@@ -28,11 +35,8 @@ if [ ! -d /var/lib/mysql/mysql ]; then
 	echo "FLUSH PRIVILEGES;" >> ${INNIT}
 
     mariadbd --defaults-file=/etc/my.cnf.d/inception.cnf --bootstrap < ${INNIT}
-    rm -f ${INNIT}
-
-    # envsubst '$$DB_ROOT_PASSWORD $$DB_USER $$DB_PASSWORD $$DB_NAME' < /init.sql.template > /init.sql
-    # mariadbd --defaults-file=/etc/my.cnf.d/inception.cnf --bootstrap < /init.sql
-    # rm -f /init.sql.template
+    # rm -f ${INNIT}
+    touch done.txt
 
 fi
 

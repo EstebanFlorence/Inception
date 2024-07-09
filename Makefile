@@ -48,7 +48,7 @@ ls:
 		@echo "${ITALIC}${BOLD}${YELLOW}Containers:${CLR_RMV}"
 		@docker compose -f ${DOCKER_COMPOSE} ps -a
 
-re:		clean build
+re:		clean cleanvol build
 
 
 # Debug

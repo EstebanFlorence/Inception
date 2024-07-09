@@ -6,8 +6,9 @@ services:
     env_file:
       - .env
     networks:
-      inception-network:
-        ipv4_address: 10.0.0.1
+      - inception-network
+      # inception-network:
+        # ipv4_address: 10.0.0.1
         # aliases:
         #   - nginx-network
     volumes:
@@ -26,8 +27,9 @@ services:
     env_file:
       - .env
     networks:
-      inception-network:
-        ipv4_address : 10.0.0.2
+      - inception-network
+      # inception-network:
+      #   ipv4_address : 10.0.0.2
         # aliases:
           # - db-network
     volumes:
@@ -40,8 +42,9 @@ services:
     env_file:
       - .env
     networks:
-      inception-network:
-        ipv4_address : 10.0.0.3
+      - inception-network
+      # inception-network:
+      #   ipv4_address : 10.0.0.3
         # aliases:
         #   - wp-network
     volumes:
@@ -53,13 +56,13 @@ services:
 
 networks:
   inception-network:
-    name: inception
+    name: inception-network
     driver: bridge
-    ipam:
-      driver: default
-      config:
-      - subnet: 10.0.0.0/24
-        gateway: 10.0.0.254
+    # ipam:
+    #   driver: default
+    #   config:
+    #   - subnet: 10.0.0.0/24
+    #     gateway: 10.0.0.254
 
 
 volumes:

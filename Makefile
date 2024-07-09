@@ -48,13 +48,17 @@ ls:
 		@echo "${ITALIC}${BOLD}${YELLOW}Containers:${CLR_RMV}"
 		@docker compose -f ${DOCKER_COMPOSE} ps -a
 
-re:		clean cleanvol build
+rm:		clean cleanvol
+
+re:		clean build
 
 
 # Debug
 logs:
 		@echo "${ITALIC}${BOLD}${YELLOW}Logs${CLR_RMV}"
 		@docker compose -f ${DOCKER_COMPOSE} logs
+		@echo "${ITALIC}${BOLD}${YELLOW}NGINX Access Logs${CLR_RMV}"
+		@docker exec nginx cat /var/log/nginx/access.log
 
 errors:
 		@echo "${ITALIC}${BOLD}${PURPLE}mariadb${CLR_RMV}"
@@ -63,8 +67,6 @@ errors:
 		@docker exec wordpress cat /var/log/php83/error.log
 		@echo "${ITALIC}${BOLD}${PURPLE}nginx${CLR_RMV}"
 		@docker exec nginx cat /var/log/nginx/error.log
-		@echo "${ITALIC}${BOLD}${PURPLE}nginx access logs${CLR_RMV}"
-		@docker exec nginx cat /var/log/nginx/access.log
 
 IMAGE_NAME = wordpress
 

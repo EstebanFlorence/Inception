@@ -11,6 +11,7 @@ RUN apk update && apk upgrade && \
     php83-mysqli \
     php83-phar \
     php83-mbstring \
+    php83-redis \
     && rm -rf /var/cache/apk/*
 
 RUN ln -s /usr/bin/php83 /usr/bin/php

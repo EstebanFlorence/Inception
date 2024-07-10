@@ -15,6 +15,8 @@ if [ ! -d /var/www/html/wp-admin ]; then
     wp core download
     wp core install --url="${DOMAIN_NAME}" --title="${WP_TITLE}" --admin_user="${WP_ADMIN}" --admin_password="${WP_ADMIN_PASS}" --admin_email="${WP_EMAIL}"
     wp user create "${WP_DB_USER}" user@wordpress.it --role=author --user_pass="${WP_USER_PASS}"
+    wp plugin install redis-cache --activate
+    wp redis enable
 
 fi
 

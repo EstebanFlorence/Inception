@@ -38,11 +38,14 @@ define( 'DB_CHARSET', 'utf8' );
 define( 'DB_COLLATE', '' );
 
 /** Automatic database repair support */
-// define( 'WP_ALLOW_REPAIR', true );
+define( 'WP_ALLOW_REPAIR', true );
 
 /** Activate the cache for WordPress */
-// define( 'WP_CACHE', true );
-# redis...
+define( 'WP_CACHE', true );
+
+define( 'WP_REDIS_HOST', 'rds' );
+
+define( 'WP_REDIS_PORT', '6379' );
 
 /**#@+
  * Authentication unique keys and salts.

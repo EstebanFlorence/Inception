@@ -1,10 +1,6 @@
 FROM alpine:3.19
 
-EXPOSE 443 8080
-
-COPY /conf/nginx.conf /etc/nginx/nginx.conf.template
-
-COPY /tools/entrypoint.sh /entrypoint.sh
+EXPOSE 443
 
 RUN apk update && apk upgrade && \
     apk --no-cache add \
@@ -12,6 +8,10 @@ RUN apk update && apk upgrade && \
     openssl \
     gettext \
     && rm -rf /var/cache/apk/*
+
+COPY /conf/nginx.conf /etc/nginx/nginx.conf.template
+
+COPY /tools/entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
 

@@ -37,4 +37,4 @@ https://mariadb.com/kb/en/mariadbd-options/
 ## WordPress
 https://developer.wordpress.org/apis/wp-config-php/
 https://make.wordpress.org/cli/handbook/guides/installing/
-https://developer.wordpress.org/cli/commands/core/
+https://developer.wordpress.org/cli/commands/

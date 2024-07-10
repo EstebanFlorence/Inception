@@ -34,8 +34,8 @@ if [ ! -d /var/lib/mysql/mysql ]; then
 	echo "DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');" >> ${INNIT}
 	echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '${DB_ROOT_PASSWORD}';" >> ${INNIT}
 	echo "CREATE DATABASE ${WP_DB_NAME};" >> ${INNIT}
-	echo "CREATE USER '${WP_DB_USER}'@'%' IDENTIFIED BY '${WP_DB_PASSWORD}';" >> ${INNIT}
-	echo "GRANT ALL PRIVILEGES ON ${WP_DB_NAME}.* TO '${WP_DB_USER}'@'%' IDENTIFIED BY '${WP_DB_PASSWORD}';" >> ${INNIT}
+	echo "CREATE USER '${WP_DB_USER}'@'%' IDENTIFIED BY '${WP_DB_PASS}';" >> ${INNIT}
+	echo "GRANT ALL PRIVILEGES ON ${WP_DB_NAME}.* TO '${WP_DB_USER}'@'%' IDENTIFIED BY '${WP_DB_PASS}';" >> ${INNIT}
 	echo "FLUSH PRIVILEGES;" >> ${INNIT}
 
     mariadbd --defaults-file=/etc/my.cnf.d/inception.cnf --bootstrap < ${INNIT}

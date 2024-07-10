@@ -58,7 +58,7 @@ logs:
 		@echo "${ITALIC}${BOLD}${YELLOW}Logs${CLR_RMV}"
 		@docker compose -f ${DOCKER_COMPOSE} logs
 		@echo "${ITALIC}${BOLD}${YELLOW}NGINX Access Logs${CLR_RMV}"
-		@docker exec nginx cat /var/log/nginx/access.log
+		@docker exec NGINX cat /var/log/nginx/access.log
 
 errors:
 		@echo "${ITALIC}${BOLD}${PURPLE}mariadb${CLR_RMV}"

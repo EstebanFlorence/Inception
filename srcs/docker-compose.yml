@@ -1,7 +1,8 @@
 services:
 
   nginx:
-    container_name: nginx
+    container_name: NGINX
+    image: nginx
     build: ./requirements/nginx/
     env_file:
       - .env
@@ -22,7 +23,8 @@ services:
       - "8080:8080"
 
   mariadb:
-    container_name: mariadb
+    container_name: MariaDB
+    image: mariadb
     build: ./requirements/mariadb/
     env_file:
       - .env
@@ -37,7 +39,8 @@ services:
     restart: unless-stopped
 
   wordpress:
-    container_name: wordpress
+    container_name: WordPress
+    image: wordpress
     build: ./requirements/wordpress/
     env_file:
       - .env

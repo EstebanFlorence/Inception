@@ -3,14 +3,12 @@
 if [ ! -d /var/log/mysql ]; then
 
     mkdir -p /var/log/mysql
-    # chown -R mysql:mysql /var/log/mysql
 
 fi
 
 if [ ! -d /run/mysqld ]; then
 
     mkdir -p /run/mysqld
-    # chown -R mysql:mysql /run/mysqld
 
 fi
 
@@ -19,9 +17,9 @@ chown -R mysql:mysql /var/log/mysql
 chown -R mysql:mysql /run/mysqld
 chown -R mysql:mysql /var/lib/mysql
 
+
 if [ ! -d /var/lib/mysql/mysql ]; then
 
-    # chown -R mysql:mysql /var/lib/mysql
     mariadb-install-db --defaults-file=/etc/my.cnf.d/inception.cnf
 
     INNIT=/tmp/.innit

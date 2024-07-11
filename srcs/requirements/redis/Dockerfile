@@ -6,12 +6,8 @@ RUN apk update && apk upgrade && \
     apk --no-cache add redis \
     && rm -rf /var/cache/apk/*
 
-COPY /tools/entrypoint.sh /tmp/entrypoint.sh
+COPY /tools/entrypoint.sh /entrypoint.sh
 
-RUN chmod +x /tmp/entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-# ENTRYPOINT [ "/tmp/entrypoint.sh" ]
-
-CMD [ "redis-server", "/etc/redis.conf" ]
-
-# CMD [ "redis-server" ]
+CMD [ "/entrypoint.sh" ]

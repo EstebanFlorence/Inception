@@ -10,11 +10,8 @@ services:
       - "443:443"
       - "8080:8080"
     networks:
-      # - inception-network
       inception-network:
         ipv4_address: 10.0.0.1
-        # aliases:
-        #   - nginx-network
     volumes:
       - ${CERTS_SSL}:/etc/nginx/certs
       - wp-data:/var/www/html
@@ -29,11 +26,8 @@ services:
     env_file:
       - .env
     networks:
-      # - inception-network
       inception-network:
         ipv4_address : 10.0.0.2
-        # aliases:
-          # - db-network
     volumes:
       - db-data:/var/lib/mysql
     restart: unless-stopped
@@ -45,11 +39,8 @@ services:
     env_file:
       - .env
     networks:
-      # - inception-network
       inception-network:
         ipv4_address : 10.0.0.3
-        # aliases:
-        #   - wp-network
     volumes:
       - wp-data:/var/www/html
     depends_on:
@@ -60,14 +51,13 @@ services:
     container_name: RedisCache
     image: redis
     build: ./requirements/redis/
+    env_file:
+      - .env
     ports:
       - "6379:6379"
     networks:
-      # - inception-network
       inception-network:
         ipv4_address : 10.0.0.4
-        # aliases:
-        #   - wp-network
     depends_on:
       - wordpress
     restart: unless-stopped

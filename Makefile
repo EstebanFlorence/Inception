@@ -61,12 +61,12 @@ logs:
 		@docker exec NGINX cat /var/log/nginx/access.log
 
 errors:
-		@echo "${ITALIC}${BOLD}${PURPLE}mariadb${CLR_RMV}"
-		@docker exec mariadb cat /var/log/mysql/error.log
-		@echo "${ITALIC}${BOLD}${PURPLE}wordpress${CLR_RMV}"
-		@docker exec wordpress cat /var/log/php83/error.log
-		@echo "${ITALIC}${BOLD}${PURPLE}nginx${CLR_RMV}"
-		@docker exec nginx cat /var/log/nginx/error.log
+		@echo "${ITALIC}${BOLD}${PURPLE}MariaDB${CLR_RMV}"
+		@docker exec MariaDB cat /var/log/mysql/error.log
+		@echo "${ITALIC}${BOLD}${PURPLE}WordPress${CLR_RMV}"
+		@docker exec WordPress cat /var/log/php83/error.log
+		@echo "${ITALIC}${BOLD}${PURPLE}NGINX${CLR_RMV}"
+		@docker exec NGINX cat /var/log/nginx/error.log
 
 IMAGE_NAME = wordpress
 

@@ -15,10 +15,4 @@ COPY /tools/entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
 
-# RUN sh /entrypoint.sh
-
-# RUN rm /entrypoint.sh
-
-# CMD [ "nginx", "-g", "daemon off;" ]
-
 CMD [ "/entrypoint.sh" ]

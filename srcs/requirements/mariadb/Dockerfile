@@ -17,10 +17,4 @@ COPY /tools/entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
 
-# RUN sh /entrypoint.sh
-
-# RUN rm /entrypoint.sh
-
-# CMD [ "mariadbd-safe", "--defaults-file=/etc/my.cnf.d/inception.cnf" ]
-
 CMD [ "/entrypoint.sh" ]

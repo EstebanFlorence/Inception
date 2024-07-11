@@ -8,7 +8,7 @@ mv wp-cli.phar /usr/local/bin/wp
 if [ ! -d /var/www/html/wp-admin ]; then
 
     # wp-config.php
-    envsubst '$$WP_DB_NAME $$DB_USER $$WP_DB_PASS $$DB_HOST' < /wp-config-tmp.php > /var/www/html/wp-config.php
+    envsubst '$$WP_DB_NAME $$DB_USER $$WP_DB_PASS $$DB_HOST $$REDIS_PASS' < /wp-config-tmp.php > /var/www/html/wp-config.php
 
     # WordPress
     cd /var/www/html

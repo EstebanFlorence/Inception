@@ -43,9 +43,15 @@ define( 'WP_ALLOW_REPAIR', true );
 /** Activate the cache for WordPress */
 define( 'WP_CACHE', true );
 
-define( 'WP_REDIS_HOST', 'rds' );
+define( 'WP_REDIS_HOST', '10.0.0.4' );
 
 define( 'WP_REDIS_PORT', '6379' );
+
+define('WP_REDIS_PASSWORD', '$REDIS_PASS');
+
+define( 'WP_REDIS_TIMEOUT', 1 );
+
+define( 'WP_REDIS_READ_TIMEOUT', 1 );
 
 /**#@+
  * Authentication unique keys and salts.
@@ -89,7 +95,7 @@ $table_prefix = 'wp_';
  *
  * @link https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/
  */
-define( 'WP_DEBUG', false );
+define( 'WP_DEBUG', true );
 
 /* Add any custom values between this line and the "stop editing" line. */
 

@@ -67,6 +67,10 @@ errors:
 		@docker exec WordPress cat /var/log/php83/error.log
 		@echo "${ITALIC}${BOLD}${PURPLE}NGINX${CLR_RMV}"
 		@docker exec NGINX cat /var/log/nginx/error.log
+		@echo "${ITALIC}${BOLD}${PURPLE}Redis${CLR_RMV}"
+		@docker exec RedisCache cat /var/log/redis/redis.log
+		@# @echo "${ITALIC}${BOLD}${PURPLE}FTP${CLR_RMV}"
+		@# @docker exec FTP cat /var/log/
 
 IMAGE_NAME = wordpress
 

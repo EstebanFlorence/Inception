@@ -8,7 +8,6 @@ services:
       - .env
     ports:
       - "443:443"
-      - "8080:8080"
     networks:
       inception-network:
         ipv4_address: 10.0.0.1
@@ -17,6 +16,7 @@ services:
       - wp-data:/var/www/html
     depends_on:
       - wordpress
+      - adminer
     restart: unless-stopped
 
   mariadb:
@@ -60,6 +60,38 @@ services:
         ipv4_address : 10.0.0.4
     depends_on:
       - wordpress
+    restart: unless-stopped
+
+  ftp:
+    container_name: FTP
+    image: ftp
+    build: ./requirements/ftp/
+    env_file:
+      - .env
+    ports:
+      - "21:21"
+    networks:
+      inception-network:
+        ipv4_address : 10.0.0.5
+    volumes:
+      - wp-data:/var/www/html
+    depends_on:
+      - wordpress
+    restart: unless-stopped
+
+  adminer:
+    container_name: AdminerDB
+    image: adminer
+    build: ./requirements/adminer/
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    networks:
+      inception-network:
+        ipv4_address : 10.0.0.6
+    depends_on:
+      - mariadb
     restart: unless-stopped
 
 

@@ -2,10 +2,13 @@
 
 # Work in progress...
 
+
+
 # Documentation
 
 - https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
 - https://alpinelinux.org/releases/
+https://wiki.alpinelinux.org/wiki/Setting_up_a_new_user
 
 ## Docker
 - https://docs.docker.com/build/building/best-practices/
@@ -41,3 +44,7 @@
 
 ## Redis Cache
 - https://github.com/rhubarbgroup/redis-cache/blob/develop/INSTALL.md
+
+## FTP Server
+- https://wiki.alpinelinux.org/wiki/FTP
+

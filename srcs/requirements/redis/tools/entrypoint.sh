@@ -6,4 +6,7 @@ sed -i "s|# maxmemory <bytes>|maxmemory 2mb|g" /etc/redis.conf
 sed -i "s|# maxmemory-policy noeviction|maxmemory-policy allkeys-lru|g" /etc/redis.conf
 sed -i "s|# requirepass foobared|requirepass ${REDIS_PASS}|g" /etc/redis.conf
 
+# For the Host Machine
+# sysctl vm.overcommit_memory=1
+
 exec redis-server /etc/redis.conf

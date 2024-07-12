@@ -23,7 +23,7 @@
 define( 'DB_NAME', '$WP_DB_NAME' );
 
 /** Database username */
-define( 'DB_USER', '$DB_USER' );
+define( 'DB_USER', '$WP_DB_USER' );
 
 /** Database password */
 define( 'DB_PASSWORD', '$WP_DB_PASS' );

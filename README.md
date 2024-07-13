@@ -7,6 +7,7 @@
 # Documentation
 
 - https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
+- https://www.youtube.com/watch?v=eyNBf1sqdBQ
 - https://alpinelinux.org/releases/
 https://wiki.alpinelinux.org/wiki/Setting_up_a_new_user
 
@@ -47,4 +48,5 @@ https://wiki.alpinelinux.org/wiki/Setting_up_a_new_user
 
 ## FTP Server
 - https://wiki.alpinelinux.org/wiki/FTP
+- http://vsftpd.beasts.org/vsftpd_conf.html
 

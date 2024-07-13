@@ -50,7 +50,7 @@ services:
   redis:
     container_name: RedisCache
     image: redis
-    build: ./requirements/redis/
+    build: ./requirements/bonus/redis/
     env_file:
       - .env
     ports:
@@ -65,7 +65,7 @@ services:
   ftp:
     container_name: FTP
     image: ftp
-    build: ./requirements/ftp/
+    build: ./requirements/bonus/ftp/
     env_file:
       - .env
     ports:
@@ -82,7 +82,7 @@ services:
   adminer:
     container_name: AdminerDB
     image: adminer
-    build: ./requirements/adminer/
+    build: ./requirements/bonus/adminer/
     env_file:
       - .env
     ports:

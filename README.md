@@ -1,10 +1,24 @@
-# Inception
+<h1 align="center">
+Inception
+</h1>
 
-# Work in progress...
+<p align="center">
+Docker Compose for a simple LAMP stack
+</p>
 
+This is a Docker based system administration project, consisting of a small infrastructure composed of several services, each of which runs in a dedicated container
 
+## Technologies
+All the images are based on Alpine, the Docker images are built with Dockerfile
 
-# Documentation
+- NGINX: Web Server
+- MariaDB: Database
+- WordPress + phpfpm: PHP processor
+- Adminer: Databse Manager
+- redis: cache server
+- ftp: vsftp server
+
+## Documentation
 
 - https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
 - https://www.youtube.com/watch?v=eyNBf1sqdBQ

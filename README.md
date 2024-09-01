@@ -2,9 +2,9 @@
 
 
 #
-<p align="center">
+<h2 align="center">
 Docker Compose for a simple LAMP stack
-</p>
+</h2>
 
 This is a Docker based system administration project, consisting of a small infrastructure composed of several services, each of which runs in a dedicated container
 
@@ -17,6 +17,11 @@ All the images are based on Alpine, the Docker images are built with Dockerfile
 - Adminer: Databse Manager
 - redis: cache server
 - ftp: vsftp server
+
+#
+<div align="center">
+<img width="678" alt="Diagram" src="https://github.com/user-attachments/assets/b4ee89bf-c25d-4eb9-9d5f-0e32f7da723c">
+</div>
 
 ## Documentation
 

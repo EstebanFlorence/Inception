@@ -30,26 +30,26 @@ All the images are based on Alpine, the Docker images are built with Dockerfile
 - https://alpinelinux.org/releases/
 https://wiki.alpinelinux.org/wiki/Setting_up_a_new_user
 
-## Docker
+### Docker
 - https://docs.docker.com/build/building/best-practices/
 - https://www.padok.fr/en/blog/docker-processes-container
 - https://docs.docker.com/engine/security/certificates/
 
-### Dockerfile
+#### Dockerfile
 - https://docs.docker.com/reference/dockerfile/
 - https://docs.docker.com/guides/docker-concepts/building-images/writing-a-dockerfile/
 
-### Docker-compose
+#### Docker-compose
 - https://docs.docker.com/compose/reference/
 - https://docs.docker.com/compose/compose-file/05-services/
 
-## NGINX
+### NGINX
 - http://nginx.org/en/docs/http/configuring_https_servers.html
 - https://www.youtube.com/watch?v=X3Pr5VATOyA
 - https://www.quora.com/Why-do-almost-all-Nginx-users-change-the-root-to-var-www-HTML-from-the-default-usr-share-nginx-HTML-Any-performance-or-security-reasons
 - https://www.digitalocean.com/community/tutorials/understanding-and-implementing-fastcgi-proxying-in-nginx
 
-## MariaDB
+### MariaDB
 - https://wiki.alpinelinux.org/wiki/MariaDB
 - https://mariadb.com/get-started-with-mariadb/
 - https://mariadb.com/kb/en/mariadb-install-db/
@@ -57,15 +57,15 @@ https://wiki.alpinelinux.org/wiki/Setting_up_a_new_user
 - https://mariadb.com/kb/en/server-system-variables/
 - https://mariadb.com/kb/en/mariadbd-options/
 
-## WordPress
+### WordPress
 - https://developer.wordpress.org/apis/wp-config-php/
 - https://make.wordpress.org/cli/handbook/guides/installing/
 - https://developer.wordpress.org/cli/commands/
 
-## Redis Cache
+### Redis Cache
 - https://github.com/rhubarbgroup/redis-cache/blob/develop/INSTALL.md
 
-## FTP Server
+### FTP Server
 - https://wiki.alpinelinux.org/wiki/FTP
 - http://vsftpd.beasts.org/vsftpd_conf.html
 

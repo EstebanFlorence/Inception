@@ -1,7 +1,7 @@
-<h1 align="center">
-Inception
-</h1>
+![Inception-wordmark](https://github.com/user-attachments/assets/b10461e2-90a5-4384-a5ae-caf9c5eb6d91)
 
+
+#
 <p align="center">
 Docker Compose for a simple LAMP stack
 </p>

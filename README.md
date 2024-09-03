@@ -1,7 +1,6 @@
 ![Inception-wordmark](https://github.com/user-attachments/assets/b10461e2-90a5-4384-a5ae-caf9c5eb6d91)
 
 
-#
 <h2 align="center">
 Docker Compose for a simple LAMP stack
 </h2>
@@ -28,7 +27,7 @@ All the images are based on Alpine, the Docker images are built with Dockerfile
 - https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard
 - https://www.youtube.com/watch?v=eyNBf1sqdBQ
 - https://alpinelinux.org/releases/
-https://wiki.alpinelinux.org/wiki/Setting_up_a_new_user
+- https://wiki.alpinelinux.org/wiki/Setting_up_a_new_user
 
 ### Docker
 - https://docs.docker.com/build/building/best-practices/
